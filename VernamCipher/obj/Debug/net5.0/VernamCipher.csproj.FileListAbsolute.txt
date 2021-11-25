@@ -1,0 +1,16 @@
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\bin\Debug\net5.0\VernamCipher.exe
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\bin\Debug\net5.0\VernamCipher.deps.json
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\bin\Debug\net5.0\VernamCipher.runtimeconfig.json
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\bin\Debug\net5.0\VernamCipher.runtimeconfig.dev.json
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\bin\Debug\net5.0\VernamCipher.dll
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\bin\Debug\net5.0\ref\VernamCipher.dll
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\bin\Debug\net5.0\VernamCipher.pdb
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.csproj.AssemblyReference.cache
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.AssemblyInfoInputs.cache
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.AssemblyInfo.cs
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.csproj.CoreCompileInputs.cache
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.dll
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\ref\VernamCipher.dll
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.pdb
+C:\Users\knysh.m\RiderProjects\VernamCipher\VernamCipher\obj\Debug\net5.0\VernamCipher.genruntimeconfig.cache

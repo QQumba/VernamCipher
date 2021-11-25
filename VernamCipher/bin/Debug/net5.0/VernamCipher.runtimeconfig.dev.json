@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\knysh.m\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\knysh.m\\.nuget\\packages"
+    ]
+  }
+}
