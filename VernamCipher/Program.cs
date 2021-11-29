@@ -8,59 +8,31 @@ namespace VernamCipher
 {
     class Program
     {
-        private static readonly string Text = "1886399847539152320372137912";
-        private static readonly string Key = "3912";
-
-        private static readonly Dictionary<int, char> Compressed = new()
-        {
-            {1, 'а'},
-            {2, 'и'},
-            {3, 'т'},
-            {4, 'е'},
-            {5, 'с'},
-            {6, 'н'},
-            {7, 'о'},
-            {81, 'б'},
-            {82, 'в'},
-            {83, 'г'},
-            {84, 'д'},
-            {85, 'ж'},
-            {86, 'з'},
-            {87, 'к'},
-            {88, 'л'},
-            {89, 'м'},
-            {80, 'п'},
-            {91, 'р'},
-            {92, 'у'},
-            {93, 'ф'},
-            {94, 'х'},
-            {95, 'ц'},
-            {96, 'ч'},
-            {97, 'ш'},
-            {98, 'щ'},
-            {99, 'ъ'},
-            {90, 'ы'},
-            {01, 'ь'},
-            {02, 'э'},
-            {03, 'ю'},
-            {04, 'я'},
-        };
-
+        private static readonly string E1 = "57117823868830877701066169741847";
+        private static readonly string K1 = Cipher.Compress("одо");
+        
+        private static readonly string D2D = "Зашифровать произвольный текст";
+        private static readonly string K2D = "Зашифровать";
+        private static readonly string D2 = Cipher.Compress(D2D);
+        private static readonly string K2 = Cipher.Compress(K2D);
         static void Main(string[] args)
         {
-            var c = new Cipher();
-            var e = c.Encrypt("25665", "85948");
-            Console.WriteLine(e);
-            Console.WriteLine(c.Decrypt("00503", "85948"));
-            Console.WriteLine(c.Decrypt("1886399847539152320372137912", "3912"));
-            Console.WriteLine(c.Encrypt("1886399847539152320372137912", "3912"));
-            Console.WriteLine(c.Encode("три"));
-            Console.WriteLine(c.Decode("3912"));
-            Console.WriteLine(c.Decode(c.Decrypt("1886399847539152320372137912", c.Encode("три"))));
+            var d1c = Cipher.Decrypt(E1, K1);
+            var d1 = Cipher.Decompress(d1c);
+            var e2 = Cipher.Encrypt(D2, K2);
+
+            Console.WriteLine("encrypted and compressed text: " + E1);
+            Console.WriteLine("decrypted text: " + d1c);
+            Console.WriteLine("decrypted text: " + d1);
+            Console.WriteLine();
+            Console.WriteLine("text: " + D2D);
+            Console.WriteLine("key:" + K2D);
+            Console.WriteLine("compressed key: " + K2);
+            Console.WriteLine("encrypted and compressed text: " + D2);
         }
     }
 
-    public class Cipher
+    public static class Cipher
     {
         private static readonly Dictionary<string, char> Compressed = new()
         {
@@ -95,15 +67,13 @@ namespace VernamCipher
             {"02", 'э'},
             {"03", 'ю'},
             {"04", 'я'},
+            {"05", 'й'},
+            {"00", ' '},
         };
 
-        public string Compress(string text)
+        public static string Compress(string text)
         {
-            return text;
-        }
-
-        public string Encode(string text)
-        {
+            text = text.ToLower();
             var sb = new StringBuilder();
             foreach (var c in text)
             {
@@ -113,7 +83,7 @@ namespace VernamCipher
             return sb.ToString();
         }
 
-        public string Decode(string text)
+        public static string Decompress(string text)
         {
             var sb = new StringBuilder();
             var key = "";
@@ -131,17 +101,16 @@ namespace VernamCipher
             return sb.ToString();
         }
 
-        public string Encrypt(string text, string key)
+        public static string Encrypt(string text, string key)
         {
             var k = 0;
             var sb = new StringBuilder();
             foreach (var t in text)
             {
-                // var number = ((t - '0') + (key[k] - '0')) % 10;
-                var number = (t - '0').Xor(key[k] - '0') % 10;
+                var number = ((t - '0') + (key[k] - '0')) % 10;
                 sb.Append(number);
                 k++;
-                if (k == key.Length - 1)
+                if (k == key.Length)
                 {
                     k = 0;
                 }
@@ -149,8 +118,8 @@ namespace VernamCipher
 
             return sb.ToString();
         }
-
-        public string Decrypt(string text, string key)
+        
+        public static string Decrypt(string text, string key)
         {
             var k = 0;
             var sb = new StringBuilder();
@@ -159,21 +128,13 @@ namespace VernamCipher
                 var number = ((t - '0' + 10) - (key[k] - '0')) % 10;
                 sb.Append(number);
                 k++;
-                if (k == key.Length - 1)
+                if (k == key.Length)
                 {
                     k = 0;
                 }
             }
 
             return sb.ToString();
-        }
-    }
-
-    public static class IntExtensions
-    {
-        public static int Xor(this int a, int b)
-        {
-            return a ^ b;
         }
     }
 }
